@@ -14,6 +14,10 @@ h1{
   font-family:'Raleway', Tahoma, Geneva;
 }
 
+.has-mobile-nav {
+  overflow: hidden;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -73,6 +77,18 @@ button{
     margin-top: 0px;
   }
 }
+
+.has-mobile-nav .c-page {
+  /* option 1 scale */
+  /* transform: scale(.98); */
+
+  /* option 2 push left */
+  /* transform: translateX(100%); */
+
+  /* option 3 slide left */
+  transform: translateX(25%);
+}
+
 .c-head{
   display: flex;
   justify-content: center;
@@ -130,7 +146,11 @@ button{
 
 
 
-
+@media (min-width: 992px) {
+  .c-header__mobile-nav-trigger {
+      display: none;
+  }
+}
 
 
 
@@ -338,6 +358,8 @@ button{
 .o-layout--align-content-space-between {
   align-content: space-between;
 }
+
+
 
 /*
   Objects: List
@@ -944,3 +966,111 @@ button{
 */
 
 
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+.c-nav-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  width: 24px;
+  height: 24px;
+  outline: none;
+}
+
+.c-nav-trigger__svg {
+  fill: #202024;
+  height: 100%;
+}
+
+/*
+    Component: mobile nav
+    ---
+    Dedicated mobile nav component
+*/
+
+.c-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.has-mobile-nav .c-mobile-nav {
+  pointer-events: auto;
+}
+
+.c-mobile-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.c-mobile-nav__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #202024;
+  will-change: opacity;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__bg {
+  opacity: .5;
+}
+
+.c-mobile-nav__body {
+  position: relative;
+  padding: 24px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  will-change: transform;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+}
+
+.has-mobile-nav .c-mobile-nav__body {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .c-mobile-nav__body {
+      padding: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Hide the mobile nav on larger viewports even whent it's open on smaller screens */
+  .c-mobile-nav {
+      display: none !important;
+  }
+}

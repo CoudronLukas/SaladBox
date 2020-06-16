@@ -10,6 +10,20 @@
     <script src='script/dataHandler.js'></script>
     <script src="script/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          toggleNav();
+      })
+
+      function toggleNav() {
+          let toggleTrigger = document.querySelectorAll(".js-toggle-nav");
+          for (let i = 0; i < toggleTrigger.length; i++) {
+              toggleTrigger[i].addEventListener("touchstart", function() {
+                  document.querySelector("html").classList.toggle("has-mobile-nav");
+              })
+          }
+      }
+  </script>
   </head>
   <body>
 
@@ -30,10 +44,20 @@
                           <li class="c-nav__item"><a class="c-nav__link" href="#skip_to_geschiedenis">Geschiedenis</a></li>
                           
                           <!-- <li class="c-nav__item c-nav__item--cta"><a href="#!" class="c-link-cta">Test</a></li>                                 -->
-                      </ul>                  
-                  </nav>
+                      </ul>  
+                  
+                  </nav>             
               </div>
-          </div>        
+
+          </div> 
+          <div class="c-header__mobile-nav-trigger">
+            <button class="o-button-reset c-nav-trigger js-toggle-nav">
+              <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+            </button>
+        </div>          
       </div>
     </header>
 
@@ -125,35 +149,27 @@
 
 
 
+      <aside class="c-mobile-nav">
+        <div class="c-mobile-nav__bg"></div>
+        <div class="c-mobile-nav__body">
+            <div class="c-mobile-nav__header">
+                <button class="o-button-reset c-nav-trigger js-toggle-nav">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+            </div>
+            <div class="c-mobile-nav__nav c-mobile-nav__nav--main">
+                <nav class="c-nav">
+                    <ul class="o-list c-nav__list">
+                        <li class="c-nav__item"><a href="#skip_to_metingen" class="c-nav__link">Metingen</a></li>
+                        <li class="c-nav__item"><a href="#skip_to_grafiek" class="c-nav__link">Grafiek</a></li>
+                        <li class="c-nav__item"><a href="#skip_to_geschiedenis" class="c-nav__link">Geschiedenis</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-<!--     <div>
-      <canvas class="js-chart" id="myChart" width=800 height=600></canvas>
-    </div> -->
 
   </body>
 </html>
