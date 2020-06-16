@@ -1,0 +1,946 @@
+@font-face{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+}
+
+h1{
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  padding-top: 24px;
+  padding-bottom: 8px;
+  color: rgb(112,112,112);
+  font-family:'Raleway', Tahoma, Geneva;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr,td,th,table{
+  text-align: center;
+  border: 1px solid black;
+  font-family: 'Raleway', Tahoma, Geneva;
+}
+
+button{
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: black;
+}
+
+.c-meetwaarde {
+  font-family: 'Raleway', Tahoma, Geneva;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-sensor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  font-family: 'Raleway', Tahoma, Geneva;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .c-sensor {
+    flex-direction: column;
+    align-items: center;
+    align-content: unset;
+
+  }
+  .c-sensor div{
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+  .c-head{
+    margin-bottom: 0px;
+  }
+  .c-waarde{
+    margin-top: 0px;
+  }
+}
+.c-head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  font-weight: bold;
+  color: white;  
+  border-bottom:  solid white;
+  font-size: 28px;
+}
+
+.c-meting {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+  height: 17rem;
+  border-radius: 25px;
+  background: black;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: linear-gradient(to bottom, rgba(57, 174, 85,1), rgba(50, 160, 60,0.6));
+}
+.c-datum {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0rem 0.5rem;
+  text-transform: uppercase;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.c-waarde {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  color: white;
+  font-size: 2.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.c-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom:  solid white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.c-achtergrond{
+  background-color: rgba(54,104,141,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.o-row {
+  display: flow-root; /* New solution! Fixes margin collapsing */
+  position: relative;
+}
+
+/* size modifiers */
+
+
+
+/* color modifiers */
+
+
+@media (min-width: 768px) {
+  .o-row {
+      padding-left: 0%;
+      padding-right: 0%;
+  }
+}
+
+/*
+  Objects: Container
+  ---
+  Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100em; /* 71 * 18px = 1278px */
+}
+
+.o-container-small {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80em; /* 71 * 18px = 1278px */
+}
+/*
+  Objects: section
+  ---
+  Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+  /* overflow-x: hidden; */
+  position: relative;
+  display: flow-root; /* New solution! Fixes margin collapsing */
+}
+
+.o-section + .o-section {
+  padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+  .o-section--lg + .o-section--lg,
+  .o-section--xl + .o-section--xl {
+      padding-top: 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .o-section--xl + .o-section--xl {
+      padding-top: 72px;
+  }
+}
+
+/*
+  Objects: Layout
+  ---
+  The layout object provides us with a column-style layout system. This object
+  contains the basic structural elements, but classes should be complemented
+  with width utilities
+*/
+
+.o-layout {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+  .o-layout__item {
+      flex-basis: 100%;
+  }
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+  margin: 0 -12px !important;
+}
+
+.o-layout--gutter > .o-layout__item {
+  padding: 0 12px;
+}
+
+.o-layout--gutter-sm {
+  margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+  padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+  margin: 0 -24px;
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+  padding: 0 24px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+  justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+  justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+  justify-content: center;
+}
+
+.o-layout--justify-space-around {
+  justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+  align-items: flex-start;
+}
+
+.o-layout--align-end {
+  align-items: flex-end;
+}
+
+.o-layout--align-center {
+  align-items: center;
+}
+
+.o-layout--align-baseline {
+  align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+  align-content: start;
+}
+
+.o-layout--align-content-end {
+  align-content: end;
+}
+
+.o-layout--align-content-center {
+  align-content: center;
+}
+
+.o-layout--align-content-space-around {
+  align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+  align-content: space-between;
+}
+
+/*
+  Objects: List
+  ---
+  Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+  list-style: none;
+  padding: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+  Component: Logo
+  ---
+  Website main logo
+*/
+
+
+.c-color--text{
+  color: #83859E;
+  font-size: 20px;
+}
+
+.c-color--text-white{
+  color: #9C9EB8;
+  font-size: 18px;
+}
+
+.c-color--text-kop{
+  color: #FFFFFF;
+  font-size: 32px;
+}
+
+.c-logo {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .c-logo {
+      padding-left: 40%;
+      border-bottom:  solid black;
+  }
+}
+
+.c-logo__symbol {
+  height: 100%;
+}
+
+/*
+  Component: header
+  ---
+  Main header of the website
+*/
+
+.c-header__nav {
+  display: none;
+  font-family: 'Raleway', Tahoma, Geneva;
+}
+
+@media (min-width: 992px) {
+  .c-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: solid black;
+  }
+
+  .c-header__nav {
+      display: block;
+  }
+}
+
+/*
+  Component: footer
+  ---
+  Main footer of the website
+*/
+
+.c-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-footer__logo {
+  width: 100%;
+}
+
+.c-footer__nav {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .c-footer {
+      justify-content: center;
+      align-items: center;
+  }
+
+  .c-footer__logo {
+      display: flex;
+      justify-content: center;
+      padding: 0 12px;
+  }
+
+  .c-footer__nav {
+      width: auto;
+      padding: 0 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-footer {
+      justify-content: space-between;
+  }
+
+  .c-footer__nav {
+      padding: 0;
+  }
+
+  .c-footer__logo + .c-footer__nav {
+      order: -1;
+  }
+
+  .c-footer__logo {
+      width: auto;
+  }
+
+  /*
+      Bonus: real centering with CSS
+      Checkout: https://css-tricks.com/centering-css-complete-guide/
+  */
+
+  /* .c-footer__logo {
+      width: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .c-footer__logo .c-logo {
+      margin-bottom: 0;
+  } */
+}
+
+/*
+  Component: Nav
+  ---
+  Main navigation of the site
+*/
+
+.c-nav {
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-style: 'Raleway', Tahoma, Geneva;
+}
+
+.c-nav__link {
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 8px 0;
+
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+  color: rgb(112,112,112);
+  font-style: 'Raleway', Tahoma, Geneva;
+}
+
+.c-nav__link:hover,
+.c-nav__link:focus {
+  text-shadow: 0 0 8px rgb(10, 9, 9)
+}
+
+@media (min-width: 992px) {
+  .c-nav__list {
+      display: flex;
+      align-items: center;
+      /* margin-left: -16px;
+      margin-right: -16px; */
+  }
+
+  .c-nav__link {
+      padding: 12px 16px;
+  }
+
+  .c-nav__item--cta {
+      margin-left: 16px;
+  }
+}
+
+/*
+  Component: Lead
+  ---
+  Lead type treatments to style everything that differs from standard typography elements
+*/
+
+.c-lead {
+  font-weight: 400;
+}
+
+.c-lead--lg {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.c-lead--xl {
+  font-size: 52px;
+  line-height: 48px;
+}
+
+/*
+  Component: figure
+  ---
+  Special type of figure and figcaption
+*/
+
+.c-figure {
+  position: relative;
+}
+
+.c-figure__caption {
+  line-height: 15px;
+  margin-top: 8px;
+  padding-left: 6px;
+  padding-top: 1px;
+  border: 2px solid #0053FB;
+  border-width: 0 0 0 2px;
+  color: #474D59;
+}
+
+@media (min-width: 768px) {
+  .c-figure__caption--absolute {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 8px;
+      text-align: right;
+      background-color: #fff;
+      padding: 16px;
+      max-width: 260px;
+      border-width: 0 4px 0 0;
+  }
+}
+
+/*
+  Component: Title icon
+  ---
+  Special type of title with icon
+*/
+
+.c-title-icon {
+  display: flex;
+  align-items: flex-start;
+}
+
+.c-title-icon__icon {
+  height: 70px;
+  margin-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .c-title-icon__icon {
+      height: 84px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-title-icon__icon {
+      height: 112px;
+  }
+}
+
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+  Utilities: color
+  ---
+  Utility classes to put specific colors onto elements
+*/
+
+
+/*
+  Utilities: spacing
+  ---
+  Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+  padding-top: 0 !important;
+}
+
+.u-mb-clear {
+  margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+  margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+  margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+  margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+  margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+  margin-bottom: 48px !important;
+}
+
+/*
+  Utilities: max-width
+  ---
+  Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+  max-width: 18em !important;
+}
+
+.u-max-width-sm {
+  max-width: 32em !important;
+}
+
+.u-max-width-md {
+  max-width: 42em !important;
+}
+
+.u-max-width-lg {
+  max-width: 60em !important;
+}
+
+.u-max-width-xl {
+  max-width: 70em !important;
+}
+
+.u-max-width-none {
+  max-width: none !important;
+}
+
+/*
+  Utility: Flex
+  ---
+  Utility classes to put specific flex properties onto elements
+  Will be mostly used on o-layout__item
+*/
+
+.u-flex-basis-auto {
+  flex-basis: auto !important;
+}
+
+.u-flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.u-1-of-2 {
+  flex-basis: calc(100% / 2) !important;
+}
+
+.u-1-of-3 {
+  flex-basis: calc(100% / 3) !important;
+}
+
+.u-2-of-3 {
+  flex-basis: calc(100% / 3 * 2) !important;
+}
+
+.u-1-of-4 {
+  flex-basis: calc(100% / 4) !important;
+}
+
+.u-3-of-4 {
+  flex-basis: calc(100% / 4 * 3) !important;
+}
+
+.u-1-of-5 {
+  flex-basis: calc(100% / 5) !important;
+}
+
+.u-2-of-5 {
+  flex-basis: calc(100% / 5 * 2) !important;
+}
+
+.u-3-of-5 {
+  flex-basis: calc(100% / 5 * 3) !important;
+}
+
+.u-4-of-5 {
+  flex-basis: calc(100% / 5 * 4) !important;
+}
+
+.u-1-of-6 {
+  flex-basis: calc(100% / 6) !important;
+}
+
+.u-5-of-6 {
+  flex-basis: calc(100% / 6 * 5) !important;
+}
+
+@media (min-width: 576px) {
+  .u-1-of-2-bp1 {
+      flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp1 {
+      flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp1 {
+      flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp1 {
+      flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp1 {
+      flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp1 {
+      flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp1 {
+      flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp1 {
+      flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp1 {
+      flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp1 {
+      flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp1 {
+      flex-basis: calc(100% / 6 * 5) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-1-of-2-bp2 {
+      flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp2 {
+      flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp2 {
+      flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp2 {
+      flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp2 {
+      flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp2 {
+      flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp2 {
+      flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp2 {
+      flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp2 {
+      flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp2 {
+      flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp2 {
+      flex-basis: calc(100% / 6 * 5) !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .u-1-of-2-bp3 {
+      flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp3 {
+      flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp3 {
+      flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp3 {
+      flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp3 {
+      flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp3 {
+      flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp3 {
+      flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp3 {
+      flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp3 {
+      flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp3 {
+      flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp3 {
+      flex-basis: calc(100% / 6 * 5) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .u-1-of-2-bp4 {
+      flex-basis: calc(100% / 2) !important;
+  }
+  .u-1-of-3-bp4 {
+      flex-basis: calc(100% / 3) !important;
+  }
+  .u-2-of-3-bp4 {
+      flex-basis: calc(100% / 3 * 2) !important;
+  }
+  .u-1-of-4-bp4 {
+      flex-basis: calc(100% / 4) !important;
+  }
+  .u-3-of-4-bp4 {
+      flex-basis: calc(100% / 4 * 3) !important;
+  }
+  .u-1-of-5-bp4 {
+      flex-basis: calc(100% / 5) !important;
+  }
+  .u-2-of-5-bp4 {
+      flex-basis: calc(100% / 5 * 2) !important;
+  }
+  .u-3-of-5-bp4 {
+      flex-basis: calc(100% / 5 * 3) !important;
+  }
+  .u-4-of-5-bp4 {
+      flex-basis: calc(100% / 5 * 4) !important;
+  }
+  .u-1-of-6-bp4 {
+      flex-basis: calc(100% / 6) !important;
+  }
+  .u-5-of-6-bp4 {
+      flex-basis: calc(100% / 6 * 5) !important;
+  }
+}
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+  Media Queries
+  ---
+  EXAMPLE Media Queries for Responsive Design.
+  These examples override the primary ('mobile first') styles.
+  USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+ No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+  Print styles.
+  ---
+  Inlined to avoid the additional HTTP request:
+  http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+

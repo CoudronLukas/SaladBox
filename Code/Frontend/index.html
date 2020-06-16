@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SaladBox</title>
+    <link rel="stylesheet" href="style/screen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src='script/dataHandler.js'></script>
+    <script src="script/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </head>
+  <body>
+
+
+      
+
+    <header class="o-row">
+      <div class="o-container">
+          <div class="c-header">
+            <h1 class="c-logo">
+              SaladBox                          
+            </h1>
+              <div class="c-header__nav">
+                  <nav class="c-nav">
+                      <ul class="c-nav__list o-list">
+                          <li class="c-nav__item"><a class="c-nav__link" href="#skip_to_metingen">Metingen</a></li>
+                          <li class="c-nav__item"><a class="c-nav__link" href="#skip_to_chart">Grafiek</a></li>
+                          <li class="c-nav__item"><a class="c-nav__link" href="#skip_to_geschiedenis">Geschiedenis</a></li>
+                          
+                          <!-- <li class="c-nav__item c-nav__item--cta"><a href="#!" class="c-link-cta">Test</a></li>                                 -->
+                      </ul>                  
+                  </nav>
+              </div>
+          </div>        
+      </div>
+    </header>
+
+
+    <a id="skip_to_metingen"></a>
+    <h1>Metingen</h1>
+    <section class="o-row">
+      <div class="o-container">
+        <div class="c-sensor">
+          <div class="c-meting">
+              <div class="c-head">Temperatuur</div>
+              <!-- <div class="c-symbol">
+                <img src="style/" alt="" />
+              </div> -->
+              <div class="c-waarde js-waarde-temp">...</div>
+          </div>
+    
+          <div class="c-meting">
+              <div class="c-head">Luchtvochtigheid</div>
+              <!-- <div class="c-symbol">
+                <img src="style/" alt="" />
+              </div> -->
+              <div class="c-waarde js-waarde-lucht">...</div>
+          </div>
+
+          <div class="c-meting">
+            <div class="c-head">Grondvochtigheid</div>
+            <!-- <div class="c-symbol">
+              <img src="style/" alt="" />
+            </div> -->
+            <div class="c-waarde js-waarde-grond">...</div>
+        </div>
+          
+          <div class="c-meting">
+            <div class="c-head">Lichtsterkte</div>
+            <!-- <div class="c-symbol">
+              <img src="style/" alt="" />
+            </div> -->
+            <div class="c-waarde js-waarde-licht">...</div>
+          </div>
+        </div>
+
+        <h1>Actuators</h1>
+        <div class="c-sensor">
+          <div class="c-meting">
+            <div class="c-head">Reservoir</div>
+            <!-- <div class="c-symbol">
+              <img src="style/" alt="" />
+            </div> -->
+            <div class="c-waarde js-status-pomp">...</div>
+          </div>
+
+          <div class="c-meting">
+            <div class="c-head">Deksel</div>
+            <!-- <div class="c-symbol">
+              <img src="style/" alt="" />
+            </div> -->
+            <div class="c-waarde js-status-stepper">...</div>
+          </div>
+
+          <div class="c-meting">
+              <div class="c-head">Groeilicht</div>
+              <div class="c-symbol">
+                <button class="button_licht" type='button' >Aan</button>
+                <button class="button_licht_uit" type='button' >Uit</button>
+              </div>
+              <div class="c-waarde js-status-licht">...</div>
+          </div>
+        </div>
+      </div>
+      
+      <a id='skip_to_chart'></a>     
+      <div class="c-achtergrond">
+        <h1>Temperatuur</h1>
+        <div>
+          <canvas id="ChartTemp" width=300 height=175></canvas>
+        </div>
+
+
+        <a id="skip_to_geschiedenis"></a>
+        <h1 class="c-meetwaarde">Geschiedenis</h1>
+        <table class='js-data c-meetwaarde'></table> 
+        <h1>Actuator</h1>
+        <table class='js-data-actuator c-meetwaarde'></table> 
+      </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<!--     <div>
+      <canvas class="js-chart" id="myChart" width=800 height=600></canvas>
+    </div> -->
+
+  </body>
+</html>
